@@ -1,0 +1,7 @@
+services:
+  feedgator:
+    image: feedgator
+    build: .
+    container_name: feedgator
+    ports:
+      - "8000:80"
