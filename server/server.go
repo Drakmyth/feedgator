@@ -6,8 +6,6 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
-
-	"github.com/jba/muxpatterns" // Implemented natively in Go 1.22
 )
 
 const DEFAULT_PORT = "80"
@@ -15,7 +13,7 @@ const DEFAULT_PORT = "80"
 var tmpl *template.Template = nil
 
 func ListenAndServe() error {
-	mux := muxpatterns.NewServeMux()
+	mux := http.NewServeMux()
 	mux.HandleFunc("GET /example", getExample)
 	tmpl, _ = template.ParseGlob("./templates/*.tmpl.html")
 
